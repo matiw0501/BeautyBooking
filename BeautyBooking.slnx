@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="BeautyBooking/BeautyBooking.Client/BeautyBooking.Client.csproj" />
+  <Project Path="BeautyBooking/BeautyBooking/BeautyBooking.csproj" />
+</Solution>
