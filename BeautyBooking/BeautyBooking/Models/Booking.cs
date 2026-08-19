@@ -15,7 +15,7 @@ namespace BeautyBooking.Models
 
 
         public int ServiceId { get; set; }
-        public Service Service { get; set; }
+        public Service Service { get; set; } = null!;
 
         public int WorkstationId { get; set; }
         public Workstation Workstation { get; set; } = null!;

@@ -15,7 +15,6 @@ namespace BeautyBooking.Models
 
         public ICollection<PriceListEntry> Prices { get; set; } = new List<PriceListEntry>();
         public ICollection<EmployeeService> EmployeeServices { get; set; } = new List<EmployeeService>();
-        public ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 
     }
 }

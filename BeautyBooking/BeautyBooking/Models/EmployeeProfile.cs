@@ -11,6 +11,5 @@ namespace BeautyBooking.Models
         public Boolean IsActive { get; set; } = true;
 
         public ICollection<EmployeeService> EmployeeServices { get; set; } = new List<EmployeeService>();
-        public ICollection<Booking> Bookings { get; set; } = new List<Booking>();
     }
 }
