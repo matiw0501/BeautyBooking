@@ -6,6 +6,7 @@
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public int DurationMinutes { get; set; }
+        public Boolean IsActive { get; set; } = true;
 
         public int ServiceCategoryId { get; set; }
         public ServiceCategory ServiceCategory { get; set; } = null!;
