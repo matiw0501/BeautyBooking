@@ -7,7 +7,7 @@ namespace BeautyBooking.Models
     {
         public string ApplicationUserId { get; set; } = string.Empty;
         public ApplicationUser ApplicationUser { get; set; } = null!;
-        [MaxLength(200)]public string PhotoUrl { get; set; } = string.Empty;
+        [MaxLength(512)]public string PhotoUrl { get; set; } = string.Empty;
         public Boolean IsActive { get; set; } = true;
 
         public ICollection<EmployeeService> EmployeeServices { get; set; } = new List<EmployeeService>();
