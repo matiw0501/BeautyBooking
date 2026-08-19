@@ -1,10 +1,12 @@
-﻿namespace BeautyBooking.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BeautyBooking.Models
 {
     public class Service
     {
         public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        [MaxLength(40)] public string Name { get; set; } = string.Empty;
+        [MaxLength(400)] public string Description { get; set; } = string.Empty;
         public int DurationMinutes { get; set; }
         public Boolean IsActive { get; set; } = true;
 

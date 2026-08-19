@@ -1,9 +1,11 @@
-﻿namespace BeautyBooking.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BeautyBooking.Models
 {
     public class Workstation
     {
         public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
+        [MaxLength(50)] public string Name { get; set; } = string.Empty;
         public int Priority { get; set; }
         public Boolean isActive { get; set; } = true;
 

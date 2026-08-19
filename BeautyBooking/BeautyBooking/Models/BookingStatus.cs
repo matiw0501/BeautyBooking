@@ -1,9 +1,11 @@
-﻿namespace BeautyBooking.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BeautyBooking.Models
 {
     public class BookingStatus
     {
         public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
+        [MaxLength(30)] public string Name { get; set; } = string.Empty;
 
         public ICollection<Booking> Bookings { get; set; } = new List<Booking>();
     }
