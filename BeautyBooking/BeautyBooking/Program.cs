@@ -2,6 +2,7 @@ using BeautyBooking.Client.Pages;
 using BeautyBooking.Components;
 using BeautyBooking.Components.Account;
 using BeautyBooking.Data;
+using BeautyBooking.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +42,9 @@ builder.Services.AddIdentityCore<ApplicationUser>(options =>
     .AddDefaultTokenProviders();
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
+
+builder.Services.AddScoped<ServiceCatalog>();
+
 
 var app = builder.Build();
 

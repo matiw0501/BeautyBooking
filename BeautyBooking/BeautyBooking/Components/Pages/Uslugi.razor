@@ -1,0 +1,48 @@
+﻿@page "/uslugi"
+@using BeautyBooking.Services
+@inject ServiceCatalog Catalog
+
+<PageTitle>Usługi</PageTitle>
+
+<h1>Nasze Usługi</h1>
+
+@if (services is null)
+{
+ <p><em>Ładowanie...</em></p>
+}
+else if (services.Count == 0)
+{
+    <p>Brak dostępnych usług</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Usługa</th>
+                <th>Kategoria</th>
+                <th>Czas trwania</th>
+                <th>Cena</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in services)
+            {
+                <tr>
+                    <td>@s.Name</td>
+                    <td>@s.CategoryName</td>
+                    <td>@s.DurationMinutes</td>
+                    <td>@(s.CurrentPrice is null ? "-" : $"{s.CurrentPrice:0.00} zł")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<ServiceListItem>? services;
+
+    protected override async Task OnInitializedAsync(){
+        services = await Catalog.GetActiveServicesAsync();
+    }
+}
