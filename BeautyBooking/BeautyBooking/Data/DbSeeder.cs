@@ -59,6 +59,32 @@ namespace BeautyBooking.Data
                     );
                 await db.SaveChangesAsync();
             }
+            if (!await db.Services.AnyAsync())
+            {
+                var manicure = await db.ServiceCategories.FirstAsync(c => c.Name == "Manicure");
+                var pedicure = await db.ServiceCategories.FirstAsync(c => c.Name == "Pedicure");
+                var laser = await db.ServiceCategories.FirstAsync(c => c.Name == "Zabiegi laserowe");
+                var twarz = await db.ServiceCategories.FirstAsync(c => c.Name == "Zabiegi na twarz");
+
+                var listOfService = new List<Service>
+                {
+                    new() { Name = "Manicure hybrydowy", Description = "Trwaly manicure hybrydowy", DurationMinutes = 60, ServiceCategory = manicure},
+                    new() { Name = "Pedicure klasyczny", Description = "Pielegnacja stop i paznokci", DurationMinutes = 75, ServiceCategory = pedicure},
+                    new() { Name = "Epilacja laserowa nóg", Description = "Trwałe usuwanie owłosienia.", DurationMinutes = 45, ServiceCategory = laser },
+                    new() { Name = "Oczyszczanie twarzy",  Description = "Głębokie oczyszczanie skóry.",  DurationMinutes = 60, ServiceCategory = twarz }
+                };
+                db.Services.AddRange(listOfService);
+                await db.SaveChangesAsync();
+
+                db.PriceListEntries.AddRange(
+                    new() { Service = listOfService[0], Amount = 120m, ValidFrom = DateTime.UtcNow },
+                    new() { Service = listOfService[1], Amount = 100m, ValidFrom = DateTime.UtcNow },
+                    new() { Service = listOfService[2], Amount = 150m, ValidFrom = DateTime.UtcNow },
+                    new() { Service = listOfService[3], Amount = 180m, ValidFrom = DateTime.UtcNow }
+                    );
+                await db.SaveChangesAsync( );
+                   
+            }
         }
     }
 }
