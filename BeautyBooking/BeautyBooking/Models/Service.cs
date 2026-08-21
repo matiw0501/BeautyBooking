@@ -9,6 +9,7 @@ namespace BeautyBooking.Models
         [MaxLength(400)] public string Description { get; set; } = string.Empty;
         public int DurationMinutes { get; set; }
         public Boolean IsActive { get; set; } = true;
+        [MaxLength(512)] public string? ImageUrl { get; set; } 
 
         public int ServiceCategoryId { get; set; }
         public ServiceCategory ServiceCategory { get; set; } = null!;
