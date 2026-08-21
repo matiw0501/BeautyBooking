@@ -1,4 +1,5 @@
 ﻿@page "/uslugi"
+@attribute [ExcludeFromInteractiveRouting]
 @using BeautyBooking.Services
 @inject ServiceCatalog Catalog
 
@@ -23,6 +24,7 @@ else
                 <th>Kategoria</th>
                 <th>Czas trwania</th>
                 <th>Cena</th>
+                <th>Przyklad</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +35,11 @@ else
                     <td>@s.CategoryName</td>
                     <td>@s.DurationMinutes</td>
                     <td>@(s.CurrentPrice is null ? "-" : $"{s.CurrentPrice:0.00} zł")</td>
+                    <td>@if (!string.IsNullOrEmpty(s.ImageUrl))
+                        {
+                            <img src="@s.ImageUrl" alt="@s.Name" style="height:48px;border-radius:4px;"/>
+                        }
+                    </td>
                 </tr>
             }
         </tbody>

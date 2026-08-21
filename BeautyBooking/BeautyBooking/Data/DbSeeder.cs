@@ -68,10 +68,10 @@ namespace BeautyBooking.Data
 
                 var listOfService = new List<Service>
                 {
-                    new() { Name = "Manicure hybrydowy", Description = "Trwaly manicure hybrydowy", DurationMinutes = 60, ServiceCategory = manicure},
-                    new() { Name = "Pedicure klasyczny", Description = "Pielegnacja stop i paznokci", DurationMinutes = 75, ServiceCategory = pedicure},
-                    new() { Name = "Epilacja laserowa nóg", Description = "Trwałe usuwanie owłosienia.", DurationMinutes = 45, ServiceCategory = laser },
-                    new() { Name = "Oczyszczanie twarzy",  Description = "Głębokie oczyszczanie skóry.",  DurationMinutes = 60, ServiceCategory = twarz }
+                    new() { Name = "Manicure hybrydowy", Description = "Trwaly manicure hybrydowy", DurationMinutes = 60, ServiceCategory = manicure, ImageUrl = "https://www.refinery29.com/images/11964625.jpg?format=webp&width=680&height=907&quality=85"},
+                    new() { Name = "Pedicure klasyczny", Description = "Pielegnacja stop i paznokci", DurationMinutes = 75, ServiceCategory = pedicure, ImageUrl = "https://www.refinery29.com/images/11964625.jpg?format=webp&width=680&height=907&quality=85"},
+                    new() { Name = "Epilacja laserowa nóg", Description = "Trwałe usuwanie owłosienia.", DurationMinutes = 45, ServiceCategory = laser, ImageUrl = "https://www.refinery29.com/images/11964625.jpg?format=webp&width=680&height=907&quality=85" },
+                    new() { Name = "Oczyszczanie twarzy",  Description = "Głębokie oczyszczanie skóry.",  DurationMinutes = 60, ServiceCategory = twarz, ImageUrl = "https://www.refinery29.com/images/11964625.jpg?format=webp&width=680&height=907&quality=85" }
                 };
                 db.Services.AddRange(listOfService);
                 await db.SaveChangesAsync();

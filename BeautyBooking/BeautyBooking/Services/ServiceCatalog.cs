@@ -8,7 +8,8 @@ namespace BeautyBooking.Services
            string Name,
            string CategoryName,
            int DurationMinutes,
-           decimal? CurrentPrice
+           decimal? CurrentPrice,
+           string? ImageUrl
            );
     public class ServiceCatalog(ApplicationDbContext db)
     {
@@ -26,7 +27,8 @@ namespace BeautyBooking.Services
                         .Where(p => p.ValidFrom <= now && (p.ValidTo == null || p.ValidTo >= now))
                         .OrderByDescending(p => p.ValidFrom)
                         .Select(p => (decimal?)p.Amount)
-                        .FirstOrDefault()))
+                        .FirstOrDefault(),
+                    s.ImageUrl))
                     .ToListAsync();
                         
         }
